@@ -4529,3 +4529,165 @@ section {
         flex: 1 1 100%;
     }
 }
+
+/* =========================================================
+   CUSTOM FIXES (legges nederst i main.css)
+   - Rydder opp i "Tjenester og priser" (#two)
+   - Sentrerer overskrift + logo
+   - Fjerner rare bak-firkantene/streken (overlay/absolute)
+   ========================================================= */
+
+/* --- Seksjon 2: sørg for ryddig layout --- */
+#two {
+  background: #f9f9f9;           /* lys bakgrunn */
+  padding: 60px 20px;            /* jevn luft */
+}
+
+/* Bruk overlay-box som "kort" */
+#two .overlay-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#two .overlay-box {
+  width: 100%;
+  max-width: 1100px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  padding: 48px 36px;
+}
+
+/* KRITISK: fjern absolute overlay som skaper rare felt/linjer */
+#two .overlay-content {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  height: auto !important;
+  width: 100% !important;
+  background: transparent !important;
+  padding: 0 !important;
+  display: block !important;
+  text-align: center; /* sentrer overskrift + logo */
+}
+
+/* Overskrift sentrert */
+#two .overlay-content h2 {
+  display: inline-block;                 /* gjør at underline sitter pent */
+  margin: 0 0 14px 0;
+  font-size: 2.2em;
+  color: #333;
+  border-bottom: 5px solid #398378;
+  padding-bottom: 8px;
+}
+
+/* Logo – sentrert og med fornuftig størrelse */
+#two .app-logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 14px 0 18px 0;
+}
+
+#two .app-logo {
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  margin: 0 !important; /* viktig: overstyr gamle margin-regler */
+}
+
+/* Intro-tekst: begrens linjelengde for penere typografi */
+#two .overlay-content > p {
+  max-width: 80ch;
+  margin: 0 auto 26px auto;
+  color: #555;
+  font-size: 1.05em;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Prisbokser: jevnt og pent – og ingen rare bak-lag */
+#two .services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+  margin-top: 10px;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Hvis “streken”/firkantene kommer fra pseudo-elementer */
+#two .services::before,
+#two .services::after {
+  content: none !important;
+}
+
+/* Hver prisboks */
+#two .service {
+  flex: 1 1 260px;
+  max-width: 320px;
+
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  padding: 26px 20px;
+
+  text-align: center;
+  margin: 0 !important; /* overstyr gamle marginer */
+}
+
+/* Ikonene i boksen */
+#two .service-icon-container {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#two .service-icon {
+  font-size: 2.2em;
+  color: #398378;
+}
+
+/* Overskrift i boksene */
+#two .service h4 {
+  font-size: 1.15em;
+  color: #333;
+  margin: 8px 0 10px 0;
+  line-height: 1.3;
+}
+
+/* Tekst i boksene */
+#two .service p {
+  color: #666;
+  margin: 0;
+  font-size: 0.98em;
+  line-height: 1.6;
+}
+
+/* Noten nederst */
+#two .note {
+  max-width: 90ch;
+  margin: 22px auto 0 auto;
+  text-align: center;
+  color: #999;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+/* Mobil: litt mer luft i boksen */
+@media screen and (max-width: 768px) {
+  #two .overlay-box {
+    padding: 34px 18px;
+  }
+
+  #two .overlay-content h2 {
+    font-size: 1.6em;
+  }
+
+  #two .service {
+    max-width: 100%;
+  }
+}
