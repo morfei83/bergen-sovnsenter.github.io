@@ -3273,69 +3273,88 @@ a:hover {
 
 /* =========================================================
    Custom site styles (Bergen søvnsenter)
-   - Clean overrides for Strata template
+   - Small design system for a more coherent look
    - Removes spacer sections (#hjelp1/#hjelp2)
-   - Tunes section spacing to avoid big "empty blocks"
+   - Tightens spacing between sections
+   - Adds "Kontakt" layout + map embed helpers
    ========================================================= */
 
-/* --- Remove the spacer sections used earlier --- */
+:root {
+	--accent: #398378;
+	--accent-2: #49bf9d;
+	--bg: #f4f6f7;
+	--card: #ffffff;
+	--text: #555;
+	--muted: #666;
+	--border: rgba(0, 0, 0, 0.06);
+	--shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+	--shadow-soft: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+body {
+	background: var(--bg);
+}
+
+/* --- Remove old spacer sections if they still exist in HTML --- */
 #hjelp1, #hjelp2 {
 	display: none !important;
 }
 
-/* --- Tighten default spacing between sections --- */
-/* Strata default was quite large; this keeps it airy without huge gaps. */
+/* --- Section spacing: let the cards define spacing, avoid large template gaps --- */
 #main > section {
-	margin: 2.5em 0 0 0;
-	padding: 2.5em 0 0 0;
+	border-top: 0;
+	margin: 2em 0 0 0;
+	padding: 0;
 }
 
-/* Make the divider line a bit lighter */
-#main > section {
-	border-top-color: #f0f0f0;
+#main > section:first-child {
+	margin-top: 0;
 }
 
-/* --- Header link list (left column) --- */
+/* --- Keep header link list stable (avoid hover-jumps) --- */
 #header .header-links a {
 	display: block;
 	color: #ffffff;
 	text-decoration: none !important;
 	font-size: 1.15em;
 	margin: 0.45em 0;
-	border-bottom: none !important; /* avoid global link underline rules */
+	border-bottom: none !important;
 }
 
 #header .header-links a:hover {
-	color: #49bf9d;
+	color: var(--accent-2);
 }
 
-/* Avoid global list hover effects causing jumpy UI */
+/* Prevent global list hover effects from causing layout shifts */
 ul li:hover {
 	letter-spacing: normal !important;
 	font-size: inherit !important;
 	background-color: transparent !important;
 }
 
-/* --- Section One (intro) --- */
-#one {
-	background: #f0f4f8;
-	border-radius: 12px;
-	padding: 34px 28px;
+/* --- Shared card styling for content sections --- */
+#one, #two, #about, #three {
+	background: var(--card);
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	box-shadow: var(--shadow-soft);
+	padding: 44px 32px;
 }
 
+/* Header underline used on multiple sections */
+.header-underline {
+	width: 60px;
+	height: 5px;
+	background-color: var(--accent);
+	margin: 10px 0 18px 0;
+}
+
+/* --- Section One (intro) --- */
 #one .major {
 	text-align: left;
 	margin-bottom: 14px;
 }
 
-.header-underline {
-	width: 60px;
-	height: 5px;
-	background-color: #398378;
-	margin: 10px 0 18px 0;
-}
-
-/* App section layout */
 .app-section {
 	display: flex;
 	flex-wrap: wrap;
@@ -3350,7 +3369,7 @@ ul li:hover {
 }
 
 .app-content p {
-	color: #555;
+	color: var(--text);
 	line-height: 1.65;
 	font-size: 1.05em;
 }
@@ -3370,14 +3389,13 @@ ul li:hover {
 	height: auto;
 	object-fit: cover;
 	border-radius: 12px;
-	box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+	box-shadow: var(--shadow);
 }
 
-/* --- Section Two (Tjenester og priser) --- */
+/* --- Section Two (Tjenester og priser)
+   Make the section itself the card; remove the extra "box within box" shadow. --- */
 #two {
-	background: #f9f9f9;
-	padding: 40px 20px;
-	border-radius: 12px;
+	padding: 44px 32px;
 }
 
 #two .overlay-container {
@@ -3389,13 +3407,14 @@ ul li:hover {
 #two .overlay-box {
 	width: 100%;
 	max-width: 1100px;
-	background: #fff;
-	border-radius: 14px;
-	box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-	padding: 44px 34px;
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 0;
 }
 
-/* ensure overlay content is in normal flow */
+/* Ensure overlay content is in normal flow */
 #two .overlay-content {
 	position: relative !important;
 	top: auto !important;
@@ -3413,7 +3432,7 @@ ul li:hover {
 	margin: 0 0 14px 0;
 	font-size: 2.1em;
 	color: #333;
-	border-bottom: 5px solid #398378;
+	border-bottom: 5px solid var(--accent);
 	padding-bottom: 8px;
 }
 
@@ -3433,7 +3452,7 @@ ul li:hover {
 #two .overlay-content > p {
 	max-width: 80ch;
 	margin: 0 auto 26px auto;
-	color: #555;
+	color: var(--text);
 	font-size: 1.05em;
 	line-height: 1.7;
 	text-align: center;
@@ -3443,7 +3462,7 @@ ul li:hover {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 26px;
+	gap: 22px;
 	margin-top: 10px;
 	background: transparent !important;
 	border: 0 !important;
@@ -3459,22 +3478,17 @@ ul li:hover {
 	flex: 1 1 260px;
 	max-width: 320px;
 	background: #fff;
-	border: 1px solid rgba(0,0,0,0.06);
+	border: 1px solid var(--border);
 	border-radius: 14px;
-	box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+	box-shadow: var(--shadow-soft);
 	padding: 26px 20px;
 	text-align: center;
 	margin: 0 !important;
 }
 
-#two .service-icon-container {
-	text-align: center;
-	margin-bottom: 10px;
-}
-
 #two .service-icon {
 	font-size: 2.2em;
-	color: #398378;
+	color: var(--accent);
 }
 
 #two .service h4 {
@@ -3485,7 +3499,7 @@ ul li:hover {
 }
 
 #two .service p {
-	color: #666;
+	color: var(--muted);
 	margin: 0;
 	font-size: 0.98em;
 	line-height: 1.6;
@@ -3493,26 +3507,20 @@ ul li:hover {
 
 #two .note {
 	max-width: 90ch;
-	margin: 22px auto 0 auto;
+	margin: 18px auto 0 auto;
 	text-align: center;
-	color: #999;
+	color: #777;
 	font-size: 0.95em;
 	line-height: 1.6;
 }
 
 /* --- About section --- */
-#about {
-	background: #ffffff;
-	border-radius: 12px;
-	padding: 44px 28px 20px;
-}
-
 #about .major {
 	text-align: center;
 }
 
 #about .major p {
-	color: #666;
+	color: var(--muted);
 	font-size: 1.05em;
 	line-height: 1.65;
 	margin-bottom: 26px;
@@ -3538,7 +3546,7 @@ ul li:hover {
 	height: 190px;
 	border-radius: 50%;
 	object-fit: cover;
-	box-shadow: 0 6px 18px rgba(57, 131, 120, 0.45);
+	box-shadow: 0 6px 18px rgba(57, 131, 120, 0.35);
 	margin-bottom: 12px;
 	transition: transform 0.2s ease-in-out;
 }
@@ -3554,22 +3562,14 @@ ul li:hover {
 }
 
 .team-member p {
-	color: #666;
+	color: var(--muted);
 	font-size: 1em;
 	margin-bottom: 0;
 }
 
-/* --- Contact section --- */
-#three {
-	background: #ffffff;
-	border-radius: 12px;
-	padding: 44px 28px;
-}
-
+/* --- Contact section (no form; use cards + map) --- */
 #three h2,
-#three p,
-#three label,
-#three .labeled-icons {
+#three p {
 	text-align: left;
 }
 
@@ -3579,38 +3579,96 @@ ul li:hover {
 }
 
 #three p {
-	color: #666;
+	color: var(--muted);
 	line-height: 1.65;
+	margin-bottom: 18px;
 }
 
-#three ul.actions input[type="submit"] {
-	background: #398378;
-	border-color: #398378;
-	color: #fff !important;
+/* Contact cards */
+.contact-cards {
+	display: grid;
+	gap: 14px;
+	margin-top: 6px;
 }
 
-#three ul.actions input[type="submit"]:hover {
-	background: #2b675d;
-	border-color: #2b675d;
+.contact-card {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+	padding: 16px 16px;
+	border: 1px solid var(--border);
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: var(--shadow-soft);
+	text-decoration: none;
+	color: #333;
+}
+
+.contact-card .icon {
+	color: var(--accent);
+	font-size: 1.1em;
+	line-height: 1.2em;
+	margin-top: 2px;
+}
+
+.contact-card .contact-card-body {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.contact-card .contact-title {
+	font-weight: 600;
+	color: #333;
+}
+
+.contact-card .contact-value {
+	color: var(--muted);
+}
+
+/* Map */
+.map-embed iframe {
+	width: 100%;
+	height: 340px;
+	border: 0;
+	border-radius: 14px;
+	box-shadow: var(--shadow-soft);
+}
+
+.map-embed small {
+	display: block;
+	margin-top: 8px;
+	color: #777;
+}
+
+/* --- Links: keep consistent look (no dotted underline) --- */
+a {
+	border-bottom: none;
+	color: var(--accent-2);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--accent);
 }
 
 /* --- Responsive tweaks --- */
 @media screen and (max-width: 980px) {
 	#one, #two, #about, #three {
 		border-radius: 0;
+		padding: 34px 18px;
 	}
 
 	#main > section {
-		margin: 2em 0 0 0;
-		padding: 2em 0 0 0;
+		margin: 1.6em 0 0 0;
+	}
+
+	.map-embed iframe {
+		height: 300px;
 	}
 }
 
 @media screen and (max-width: 768px) {
-	#two .overlay-box {
-		padding: 32px 18px;
-	}
-
 	#two .overlay-content h2 {
 		font-size: 1.6em;
 	}
