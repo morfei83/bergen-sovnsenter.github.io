@@ -16,10 +16,10 @@
             <img src="images/bergen-svnsenter-high-resolution-logo-transparent.png" alt="Bergen søvnsenter Logo" />
         </a>
         <div class="header-links">
-            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/sovn-og-sovnsykdommer" class="header-link">Søvnsykdommer</a>
-            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/sporreskjema" class="header-link">Spørreskjemaer</a>
-            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/boker-om-sovn/" class="header-link">Bøker om søvn</a>
-            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/har-du-sovnproblemer-test-deg-selv/" class="header-link">Test deg selv</a>
+            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/sovn-og-sovnsykdommer" class="header-link" target="_blank" rel="noopener noreferrer">Søvnsykdommer</a>
+            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/sporreskjema" class="header-link" target="_blank" rel="noopener noreferrer">Spørreskjemaer</a>
+            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/boker-om-sovn/" class="header-link" target="_blank" rel="noopener noreferrer">Bøker om søvn</a>
+            <a href="https://www.helse-bergen.no/nasjonal-kompetansetjeneste-for-sovnsykdommer-sovno/har-du-sovnproblemer-test-deg-selv/" class="header-link" target="_blank" rel="noopener noreferrer">Test deg selv</a>
         </div>
     </div>
 </header>
@@ -46,7 +46,10 @@
     <div class="overlay-container">
         <div class="overlay-box">
             <div class="overlay-content">
-                <h2>Tjenester og priser</h2>
+                <header class="major">
+                    <h2>Tjenester og priser</h2>
+                    <div class="header-underline"></div>
+                </header>
                 <div class="app-logo-container">
                     <img src="images/logo-no-background-svart-skrift.png" alt="Sovnsenter Logo" class="app-logo" />
                 </div>
@@ -139,7 +142,7 @@
                     </span>
                 </a>
 
-                <a class="contact-card" href="https://www.openstreetmap.org/?mlat=60.3943&mlon=5.3226#map=17/60.3943/5.3226" target="_blank" rel="noopener">
+                <a class="contact-card" href="https://www.google.com/maps/?mlat=60.3943&mlon=5.3226#map=17/60.3943/5.3226" target="_blank" rel="noopener">
                     <span class="icon solid fa-home"></span>
                     <span class="contact-card-body">
                         <span class="contact-title">Adresse</span>
@@ -154,10 +157,12 @@
                 <iframe
                     title="Kart – Bergen søvnsenter"
                     loading="lazy"
-                    src="https://www.openstreetmap.org/export/embed.html?bbox=5.3166,60.3903,5.328600000000001,60.3983&layer=mapnik&marker=60.3943,5.3226">
-                </iframe>
-                <small><a href="https://www.openstreetmap.org/?mlat=60.3943&mlon=5.3226#map=17/60.3943/5.3226" target="_blank" rel="noopener">Se større kart</a></small>
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Strandgaten%2014,%205013%20Bergen&z=17&output=embed"
+                    allowfullscreen
+                ></iframe>
             </div>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Strandgaten+14,+5013+Bergen" target="_blank" rel="noopener noreferrer">Se større kart</a>
         </div>
     </div>
 </section>
@@ -184,9 +189,6 @@
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
-
-</body>
-</html>
 
 </body>
 </html>
