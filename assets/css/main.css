@@ -3343,16 +3343,17 @@ ul li:hover {
 
 /* Header underline used on multiple sections */
 .header-underline {
-	width: 60px;
-	height: 5px;
+	width: 64px;
+	height: 4px;
 	background-color: var(--accent);
-	margin: 10px 0 18px 0;
+	margin: 12px auto 22px auto;
+	border-radius: 999px;
 }
 
 /* --- Section One (intro) --- */
 #one .major {
-	text-align: left;
-	margin-bottom: 14px;
+	text-align: center;
+	margin-bottom: 18px;
 }
 
 .app-section {
@@ -3395,7 +3396,7 @@ ul li:hover {
 /* --- Section Two (Tjenester og priser)
    Make the section itself the card; remove the extra "box within box" shadow. --- */
 #two {
-	padding: 44px 32px;
+	padding: 52px 44px;
 }
 
 #two .overlay-container {
@@ -3428,13 +3429,9 @@ ul li:hover {
 }
 
 #two .overlay-content h2 {
-	display: inline-block;
-	margin: 0 0 14px 0;
-	font-size: 2.1em;
-	color: #333;
-	border-bottom: 5px solid var(--accent);
-	padding-bottom: 8px;
+	margin: 0;
 }
+
 
 #two .app-logo-container {
 	display: flex;
@@ -3568,20 +3565,22 @@ ul li:hover {
 }
 
 /* --- Contact section (no form; use cards + map) --- */
-#three h2,
-#three p {
-	text-align: left;
+#three header.major {
+	text-align: center;
+	margin-bottom: 26px;
 }
 
-#three h2 {
+#three header.major h2 {
 	color: #333;
-	margin-bottom: 14px;
+	margin-bottom: 0;
 }
 
-#three p {
+#three header.major p {
+	text-align: center;
 	color: var(--muted);
 	line-height: 1.65;
-	margin-bottom: 18px;
+	margin: 14px auto 0 auto;
+	max-width: 70ch;
 }
 
 /* Contact cards */
