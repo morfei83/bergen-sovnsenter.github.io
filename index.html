@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Bergen søvnsenter tilbyr utredning og behandling av søvnlidelser hos Bjørn Bjorvatn og Øystein Vedaa. Se priser, kontaktinformasjon og informasjon til Fred Holstens pasienter." />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/pasientinformasjon.css?v=20260928" />
+    <link rel="stylesheet" href="assets/css/main.css?v=20260928-background" />
+    <link rel="stylesheet" href="assets/css/pasientinformasjon.css?v=20260928-disclosure" />
     <link rel="icon" type="image/png" href="images/Color logo - no background - only symbol (3).png" />
 </head>
 <body class="is-preload">
@@ -37,7 +37,7 @@
 
 <section id="one">
     <header class="major">
-        <h1>Spesialister i søvnforstyrrelser</h1>
+        <h1>Spesialister innen søvnmedisin</h1>
         <div class="header-underline"></div>
     </header>
     <div class="app-section">
@@ -129,13 +129,16 @@
             <p>Fred var en viktig del av Bergen søvnsenter, og vi minnes ham med takknemlighet. Våre tanker går til hans familie, nærmeste og pasientene som er berørt av hans bortgang.</p>
         </div>
     </div>
-    <a class="memorial-patient-link" href="#pasientinformasjon">Informasjon til Fred Holstens pasienter <span aria-hidden="true">&darr;</span></a>
 </section>
 
-<section id="pasientinformasjon" aria-labelledby="patient-title">
+<details id="pasientinformasjon" class="patient-disclosure">
+    <summary class="patient-summary">
+        <h2 id="patient-title">Informasjon til Fred Holstens pasienter</h2>
+        <span class="disclosure-icon" aria-hidden="true"></span>
+    </summary>
+    <div class="patient-content">
     <header class="patient-header">
         <p class="section-eyebrow">Videre behandling</p>
-        <h2 id="patient-title">Informasjon til Fred Holstens pasienter</h2>
         <p>Vi forstår at Freds bortgang kan skape sorg og usikkerhet om videre behandling. Vi ønsker derfor å tydeliggjøre hvilken oppfølging vi kan tilby ved Bergen søvnsenter, og hvordan du kan få hjelp dersom du trenger videre psykiatrisk behandling.</p>
     </header>
 
@@ -147,7 +150,7 @@
 
     <div class="patient-topic">
         <h3>Videre søvnbehandling hos Bjørn Bjorvatn og Øystein Vedaa</h3>
-        <p>Bjørn Bjorvatn og Øystein Vedaa er søvnspesialister og arbeider kun med utredning og behandling av søvnlidelser ved Bergen søvnsenter. Vi kan derfor overta oppfølging som gjelder søvn, men tilbyr ikke videre psykiatrisk behandling.</p>
+        <p>Bjørn Bjorvatn og Øystein Vedaa er søvnspesialister og arbeider med utredning og behandling av søvnlidelser ved Bergen søvnsenter. Vi kan derfor overta oppfølging som gjelder søvn.</p>
         <div class="private-treatment">
             <p><strong>Søvnbehandlingen hos oss er en fullprivat tjeneste.</strong> Vi har ikke driftsavtale med Helse Vest, og behandlingen dekkes ikke av det offentlige. Du må derfor betale hele beløpet selv etter <a href="#two">prisene som er oppgitt på nettsiden</a>. Frikort gjelder ikke, og betalingen teller ikke med i opptjeningen til frikort.</p>
         </div>
@@ -168,7 +171,8 @@
             <a class="patient-button patient-button-secondary" href="#three">Kontakt oss</a>
         </nav>
     </div>
-</section>
+    </div>
+</details>
 
 <section id="three">
     <header class="major">
@@ -242,7 +246,7 @@
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
 <script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=20260928-background"></script>
 
 </body>
 </html>

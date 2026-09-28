@@ -13,8 +13,8 @@
 		$main = $('#main'),
 		settings = {
 
-			// Parallax background effect?
-				parallax: true,
+			// Keep the sidebar image still so long pages never expose its edge.
+				parallax: false,
 
 			// Parallax factor (lower = more intense, higher = less intense).
 				parallaxFactor: 20

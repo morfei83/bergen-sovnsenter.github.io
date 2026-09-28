@@ -25,6 +25,7 @@
 }
 
 #main a:focus-visible,
+#main summary:focus-visible,
 #header a:focus-visible,
 .skip-link:focus-visible {
     outline: 3px solid #398378;
@@ -62,7 +63,6 @@
 }
 
 .memorial-notice a,
-.memorial-patient-link,
 #pasientinformasjon p a {
     color: #286b60;
     text-decoration: underline;
@@ -71,7 +71,6 @@
 }
 
 .memorial-notice a:hover,
-.memorial-patient-link:hover,
 #pasientinformasjon p a:hover {
     color: #174b42 !important;
 }
@@ -155,15 +154,6 @@
     margin-bottom: 0;
 }
 
-.memorial-patient-link {
-    display: block;
-    border-top: 1px solid #deded4;
-    margin-top: 26px;
-    padding-top: 20px;
-    line-height: 1.6;
-    font-size: 1rem;
-}
-
 #pasientinformasjon {
     background: #fff;
     border: 1px solid var(--border);
@@ -173,12 +163,66 @@
     line-height: 1.75;
 }
 
-#pasientinformasjon h2 {
-    max-width: 28ch;
-    color: #354b46;
-    font-size: clamp(1.65rem, 2.4vw, 2rem);
-    line-height: 1.3;
-    margin-bottom: 20px;
+#main > .patient-disclosure {
+    margin-top: 16px;
+    scroll-margin-top: 24px;
+}
+
+.patient-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 64px;
+    padding: 22px clamp(20px, 3.2vw, 44px);
+    background: #edf4f1;
+    border-radius: 13px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.patient-summary::-webkit-details-marker {
+    display: none;
+}
+
+.patient-summary::marker {
+    content: "";
+}
+
+.patient-summary:hover {
+    background: #e3eee8;
+}
+
+#pasientinformasjon .patient-summary h2 {
+    color: #286b60;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.disclosure-icon {
+    flex: 0 0 24px;
+    color: #286b60;
+    font-size: 1.5rem;
+    line-height: 1;
+    text-align: center;
+}
+
+.disclosure-icon::before {
+    content: "+";
+}
+
+.patient-disclosure[open] .disclosure-icon::before {
+    content: "\2212";
+}
+
+.patient-disclosure[open] .patient-summary {
+    border-bottom: 1px solid #d9e2df;
+    border-radius: 13px 13px 0 0;
+}
+
+.patient-content {
+    padding: 28px clamp(20px, 3.2vw, 44px);
 }
 
 #pasientinformasjon h3 {
